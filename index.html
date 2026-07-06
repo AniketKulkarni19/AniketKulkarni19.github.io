@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aniket Kulkarni — ERP & Data Analyst</title>
+<meta name="description" content="Aniket Kulkarni — Senior Analyst, ERP & Data. SQL, Python, reporting automation, and ERP modernization for enterprise manufacturing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F6F4;
+  --ink:#141D26;
+  --steel:#2E5E8C;
+  --steel-deep:#1E3D5C;
+  --line:#D8DCD9;
+  --signal:#D9A400;
+  --muted:#5A6672;
+  --card:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.reveal{transition:none!important;opacity:1!important;transform:none!important}}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'IBM Plex Sans',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+}
+.mono{font-family:'IBM Plex Mono',monospace}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+
+/* ---------- nav ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,246,244,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-brand{font-family:'IBM Plex Mono',monospace;font-size:.85rem;font-weight:500;letter-spacing:.04em;color:var(--ink);text-decoration:none}
+.nav-brand span{color:var(--steel)}
+.nav-links{display:flex;gap:26px}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color .15s}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--steel-deep)}
+a:focus-visible{outline:2px solid var(--steel);outline-offset:3px;border-radius:2px}
+@media(max-width:640px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+header{padding:84px 0 64px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);margin-bottom:18px}
+h1{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(2.3rem,5.5vw,3.7rem);
+  font-weight:700;line-height:1.06;letter-spacing:-.02em;
+  max-width:15ch;
+}
+h1 em{font-style:normal;color:var(--steel)}
+.hero-sub{margin-top:22px;max-width:56ch;font-size:1.06rem;color:var(--muted)}
+.hero-sub strong{color:var(--ink);font-weight:600}
+.hero-cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:11px 22px;font-size:.9rem;font-weight:600;text-decoration:none;border-radius:3px;transition:transform .12s,box-shadow .12s}
+.btn-primary{background:var(--steel-deep);color:#fff}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(30,61,92,.25)}
+.btn-ghost{border:1px solid var(--line);color:var(--ink);background:var(--card)}
+.btn-ghost:hover{border-color:var(--steel)}
+
+/* signature: query-result card */
+.querycard{
+  margin-top:52px;background:var(--ink);border-radius:6px;overflow:hidden;
+  box-shadow:0 10px 34px rgba(20,29,38,.18);
+}
+.querycard-bar{display:flex;align-items:center;gap:8px;padding:10px 16px;border-bottom:1px solid #26313d}
+.dot{width:9px;height:9px;border-radius:50%;background:#3a4754}
+.querycard-bar .mono{font-size:.72rem;color:#7d8a96;margin-left:8px}
+.querycard-sql{padding:16px 20px 6px;font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:#9fb4c8}
+.querycard-sql .kw{color:var(--signal)}
+.qc-table{width:100%;border-collapse:collapse;margin-top:10px}
+.qc-table th{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:#68788a;text-align:left;padding:10px 20px;border-bottom:1px solid #26313d;font-weight:500}
+.qc-table td{padding:14px 20px;border-bottom:1px solid #202b36;color:#e8edf2;font-size:.92rem}
+.qc-table td.num{font-family:'IBM Plex Mono',monospace;color:#fff;font-weight:500;white-space:nowrap}
+.qc-table td.num b{color:var(--signal);font-weight:500}
+.qc-table tr:last-child td{border-bottom:none}
+.qc-rows{padding:8px 20px 14px;font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:#68788a}
+@media(max-width:640px){
+  .qc-table th:nth-child(3),.qc-table td:nth-child(3){display:none}
+}
+
+/* ---------- sections ---------- */
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+.sec-label{font-family:'IBM Plex Mono',monospace;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);margin-bottom:10px}
+h2{font-family:'Space Grotesk',sans-serif;font-size:1.7rem;font-weight:700;letter-spacing:-.01em;margin-bottom:34px}
+
+/* experience ledger */
+.role{display:grid;grid-template-columns:190px 1fr;gap:28px;padding:28px 0;border-top:1px solid var(--line)}
+.role:first-of-type{border-top:none;padding-top:0}
+.role-meta .dates{font-family:'IBM Plex Mono',monospace;font-size:.76rem;color:var(--muted)}
+.role-meta .org{font-weight:600;margin-top:4px}
+.role-meta .loc{font-size:.82rem;color:var(--muted)}
+.role-body h3{font-family:'Space Grotesk',sans-serif;font-size:1.08rem;font-weight:700;margin-bottom:10px}
+.role-body ul{list-style:none}
+.role-body li{position:relative;padding-left:20px;margin-bottom:9px;font-size:.94rem;color:#33404d}
+.role-body li::before{content:"—";position:absolute;left:0;color:var(--steel);font-weight:600}
+.role-body li b{color:var(--ink)}
+@media(max-width:700px){.role{grid-template-columns:1fr;gap:8px}}
+
+/* project */
+.project{
+  background:var(--card);border:1px solid var(--line);border-radius:6px;
+  padding:34px;display:grid;grid-template-columns:1fr;gap:22px;
+}
+.project h3{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700}
+.project .stack{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--steel);margin-top:4px}
+.pipeline{
+  display:flex;align-items:center;flex-wrap:wrap;gap:8px;
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;
+  margin:6px 0 4px;
+}
+.pipeline .node{background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:6px 11px;color:var(--ink)}
+.pipeline .arrow{color:var(--signal);font-weight:500}
+.project ul{list-style:none;margin-top:4px}
+.project li{position:relative;padding-left:20px;margin-bottom:9px;font-size:.94rem;color:#33404d}
+.project li::before{content:"—";position:absolute;left:0;color:var(--steel);font-weight:600}
+.project .links{display:flex;gap:14px}
+
+/* skills */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.skill-card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:22px}
+.skill-card h3{font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);margin-bottom:12px;font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-size:.8rem;padding:4px 10px;border:1px solid var(--line);border-radius:3px;background:var(--paper);color:#33404d}
+
+/* education */
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.edu-card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:22px}
+.edu-card h3{font-size:1rem;font-weight:600}
+.edu-card p{font-size:.88rem;color:var(--muted);margin-top:4px}
+@media(max-width:640px){.edu{grid-template-columns:1fr}}
+
+/* contact */
+.contact{padding:80px 0}
+.contact-inner{text-align:left}
+.contact .big{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;max-width:22ch;letter-spacing:-.01em}
+.contact-links{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap}
+
+footer{padding:26px 0;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="#top">aniket<span>.</span>kulkarni</a>
+    <div class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#project">Project</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap">
+    <p class="eyebrow">ERP Analyst II · JBS USA · Fort Collins, CO</p>
+    <h1>Enterprise systems, <em>measured in data.</em></h1>
+    <p class="hero-sub">I'm Aniket Kulkarni — a <strong>Senior Analyst working across ERP and data</strong>. 6.5+ years spanning advanced SQL development, reporting solutions, ETL engineering, business analysis, and process automation for enterprise manufacturing, healthcare, and data platform environments.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#contact">Get in touch</a>
+      <a class="btn btn-ghost" href="https://github.com/AniketKulkarni19" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+    <div class="querycard reveal" aria-label="Career impact summary, styled as a SQL query result">
+      <div class="querycard-bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="mono">impact_summary.sql</span>
+      </div>
+      <div class="querycard-sql"><span class="kw">SELECT</span> metric, value, context <span class="kw">FROM</span> career_impact <span class="kw">ORDER BY</span> value <span class="kw">DESC</span>;</div>
+      <table class="qc-table">
+        <thead><tr><th>metric</th><th>value</th><th>context</th></tr></thead>
+        <tbody>
+          <tr><td>Users supported</td><td class="num"><b>~30,000</b></td><td>Enterprise ERP environment, North America</td></tr>
+          <tr><td>Legacy platform retired</td><td class="num"><b>~$2.8M</b>/yr</td><td>ERP modernization across 18 facilities</td></tr>
+          <tr><td>Report ecosystem owned</td><td class="num"><b>~600</b> reports</td><td>Order mgmt · inventory · pricing · shipping</td></tr>
+          <tr><td>Reporting costs eliminated</td><td class="num"><b>~$400K</b>/yr</td><td>Third-party platform → in-house solution</td></tr>
+          <tr><td>Report runtimes reduced</td><td class="num">up to <b>90%</b></td><td>SQL tuning &amp; execution plan analysis</td></tr>
+          <tr><td>Release docs automated</td><td class="num">20 min → <b>30 sec</b></td><td>Python + Copilot Studio</td></tr>
+        </tbody>
+      </table>
+      <div class="qc-rows">6 rows returned</div>
+    </div>
+  </div>
+</header>
+
+<section id="experience">
+  <div class="wrap">
+    <p class="sec-label">/ experience</p>
+    <h2>Where the numbers come from</h2>
+
+    <div class="role reveal">
+      <div class="role-meta">
+        <div class="dates">JUN 2023 — PRESENT</div>
+        <div class="org">JBS USA</div>
+        <div class="loc">Greeley, CO</div>
+      </div>
+      <div class="role-body">
+        <h3>ERP Analyst II</h3>
+        <ul>
+          <li>Primary reporting SME for an enterprise ERP environment supporting <b>~30,000 users</b> across North America; own a <b>~600-report ecosystem</b> spanning order management, inventory, pricing, billing, shipping, and operations.</li>
+          <li>Optimized <b>30+ reports and 4 stored procedures</b> through query tuning and execution plan analysis — report runtimes cut by up to <b>90%</b>, stored procedures by up to <b>50%</b>.</li>
+          <li>Designed Python and Copilot Studio automation reducing release documentation time from <b>~20 minutes to under 30 seconds</b>.</li>
+          <li>Conduct SQL code reviews and mentor interns, junior analysts, and a <b>6-member Australian ERP implementation team</b>, establishing development standards.</li>
+          <li>Provided on-site go-live and stabilization support across <b>11 manufacturing facilities</b>; sustain production through on-call rotations, root-cause analysis, and UAT.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role reveal">
+      <div class="role-meta">
+        <div class="dates">MAY 2022 — MAY 2023</div>
+        <div class="org">JBS USA</div>
+        <div class="loc">Greeley, CO</div>
+      </div>
+      <div class="role-body">
+        <h3>ERP Analyst I</h3>
+        <ul>
+          <li>Developed <b>400+ SQL reports</b> from scratch and enhanced ~90% of remaining reports during migration to an in-house platform, eliminating <b>~$400K in annual costs</b>.</li>
+          <li>Key reporting resource during ERP replacement across <b>18 manufacturing facilities</b> (10 beef, 6 pork, 2 Canada), enabling retirement of a legacy platform carrying <b>~$2.8M in annual operating costs</b>.</li>
+          <li>Created and deployed <b>76 reports in two weeks</b> for an accelerated facility implementation — fewer than 5% required post-go-live revisions.</li>
+          <li>Managed a pipeline of <b>20–25 report requests/month</b>; trained <b>150–200 users</b> across North American facilities.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role reveal">
+      <div class="role-meta">
+        <div class="dates">NOV 2021 — APR 2022</div>
+        <div class="org">NYC Health + Hospitals</div>
+        <div class="loc">New York, NY</div>
+      </div>
+      <div class="role-body">
+        <h3>Clinical Business Analyst Level II</h3>
+        <ul>
+          <li>Consolidated disparate data sources into centralized <b>Tableau dashboards</b>, reducing reporting preparation time by <b>~40%</b> for executive leadership.</li>
+          <li>Automated operational workflows with Python and JavaScript, reducing manual effort by <b>30–45 minutes per process</b>.</li>
+          <li>Recognized as <b>Employee of the Month</b> for improving data quality and supporting data-driven COVID-19 recovery planning.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role reveal">
+      <div class="role-meta">
+        <div class="dates">JUN 2018 — APR 2019</div>
+        <div class="org">Accenture</div>
+        <div class="loc">Pune, India</div>
+      </div>
+      <div class="role-body">
+        <h3>Application Development Analyst</h3>
+        <ul>
+          <li>Redesigned and optimized <b>50+ Informatica PowerCenter ETL mappings</b> feeding a Teradata enterprise data warehouse, reducing batch processing times by <b>~1.5 hours per cycle</b>.</li>
+          <li>Resolved <b>40+ production defects</b> and supported deployments with onshore/offshore teams.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role reveal">
+      <div class="role-meta">
+        <div class="dates">FEB 2017 — MAY 2018</div>
+        <div class="org">Accenture</div>
+        <div class="loc">Mumbai, India</div>
+      </div>
+      <div class="role-body">
+        <h3>Application Development Associate</h3>
+        <ul>
+          <li>Developed, tested, and deployed <b>50+ Informatica ETL mappings</b> against Teradata across the full SDLC, reducing daily job failures by <b>~15%</b>.</li>
+          <li>Recognized as <b>Performer of the Quarter</b> and <b>Dream Team Member</b>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="project">
+  <div class="wrap">
+    <p class="sec-label">/ featured project</p>
+    <h2>FlightPulse</h2>
+    <div class="project reveal">
+      <div>
+        <h3>US Airline Performance Analytics Platform</h3>
+        <p class="stack">AWS · Python · SQL · 2026</p>
+      </div>
+      <div class="pipeline" aria-label="Data pipeline architecture">
+        <span class="node">S3</span><span class="arrow">→</span>
+        <span class="node">Glue / PySpark</span><span class="arrow">→</span>
+        <span class="node">Athena</span><span class="arrow">→</span>
+        <span class="node">Redshift</span><span class="arrow">→</span>
+        <span class="node">QuickSight</span>
+      </div>
+      <ul>
+        <li>Serverless AWS pipeline ingesting and transforming <b>33M+ domestic flight records</b> from the Bureau of Transportation Statistics (2021–2025).</li>
+        <li>PySpark ETL for cleansing and feature engineering; star-schema warehouse in Redshift with optimized distribution/sort keys and materialized views for sub-second queries.</li>
+        <li><b>3 interactive QuickSight dashboards</b>: executive KPIs, delay root-cause analysis, and post-COVID airline recovery trends.</li>
+      </ul>
+      <div class="links">
+        <a class="btn btn-primary" href="https://github.com/AniketKulkarni19/flightpulse" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <p class="sec-label">/ skills</p>
+    <h2>Toolset</h2>
+    <div class="skill-grid reveal">
+      <div class="skill-card">
+        <h3>SQL &amp; Data</h3>
+        <div class="tags">
+          <span class="tag">Advanced SQL</span><span class="tag">CTEs</span><span class="tag">Window Functions</span><span class="tag">Stored Procedures</span><span class="tag">Query Optimization</span><span class="tag">SQL Server / SSMS</span><span class="tag">Teradata</span><span class="tag">Data Validation</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>ETL &amp; Cloud</h3>
+        <div class="tags">
+          <span class="tag">Informatica PowerCenter</span><span class="tag">AWS Glue</span><span class="tag">PySpark</span><span class="tag">S3</span><span class="tag">Redshift</span><span class="tag">Athena</span><span class="tag">Star Schema Modeling</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>BI &amp; Reporting</h3>
+        <div class="tags">
+          <span class="tag">Tableau</span><span class="tag">Amazon QuickSight</span><span class="tag">Power BI</span><span class="tag">Executive Reporting</span><span class="tag">KPI Development</span><span class="tag">Dashboard Design</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>ERP &amp; Business Systems</h3>
+        <div class="tags">
+          <span class="tag">ERP Support</span><span class="tag">Business Analysis</span><span class="tag">Requirements Gathering</span><span class="tag">Go-Live Support</span><span class="tag">User Training</span><span class="tag">Stakeholder Management</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Automation &amp; Delivery</h3>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">Copilot Studio</span><span class="tag">Process Automation</span><span class="tag">Agile</span><span class="tag">Azure DevOps</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <p class="sec-label">/ education &amp; certifications</p>
+    <h2>Credentials</h2>
+    <div class="edu reveal">
+      <div class="edu-card">
+        <h3>M.S. Computer Information Systems</h3>
+        <p>Colorado State University · May 2021 · GPA 3.89<br>Graduate Certificates: Business Intelligence, IT Project Management</p>
+      </div>
+      <div class="edu-card">
+        <h3>B.E. Electronics &amp; Telecommunications</h3>
+        <p>University of Pune · June 2016</p>
+      </div>
+      <div class="edu-card">
+        <h3>Google Project Management Certificate</h3>
+        <p>Coursera · Completed</p>
+      </div>
+      <div class="edu-card">
+        <h3>IBM Machine Learning Professional Certificate</h3>
+        <p>Coursera · In progress</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact" style="border-bottom:none">
+  <div class="wrap contact-inner">
+    <p class="sec-label">/ contact</p>
+    <p class="big">Open to Senior Data Analyst and Senior Business Systems Analyst opportunities.</p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:aneekoolkarni@gmail.com">aneekoolkarni@gmail.com</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/aniketkulkarni13/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/AniketKulkarni19" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© 2026 Aniket Kulkarni</span>
+    <span>Fort Collins, Colorado</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
